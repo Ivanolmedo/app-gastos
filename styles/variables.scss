@@ -1,0 +1,19 @@
+:root {
+  /* Colores: cambiar acá cambia toda la app */
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0f3f8;
+  --color-border: #e3e8f0;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-primary: #1e3a8a;
+  --color-primary-hover: #1e40af;
+  --color-primary-contrast: #ffffff;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+
+  /* Forma y sombras */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.08);
+}
