@@ -32,7 +32,7 @@ export default function DashboardPage() {
     const byCategory = CATEGORIES.map((c) => ({
       ...c,
       total: sumAmounts(current.filter((e) => e.category_id === c.id)),
-    ))
+    }))
       .filter((c) => c.total > 0)
       .sort((a, b) => b.total - a.total);
 

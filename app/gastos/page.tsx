@@ -42,7 +42,9 @@ export default function GastosPage() {
   const view = useMemo(() => {
     const inMonth = expensesInMonth(expenses, month);
     const filtered =
-      categoryId === "all" ? inMonth : inMonth.filter((e) => e.category_id === Number(categoryId));
+      categoryId === "all"
+        ? inMonth
+        : inMonth.filter((e) => e.category_id === Number(categoryId));
     return {
       filtered,
       filteredTotal: sumAmounts(filtered),
@@ -63,7 +65,9 @@ export default function GastosPage() {
         </Link>
       </div>
 
-      <section className={`${s.card} flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between`}>
+      <section
+        className={`${s.card} flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between`}
+      >
         <MonthSelector value={month} onChange={setMonth} />
         <select
           aria-label="Filtrar por categoría"
@@ -73,7 +77,9 @@ export default function GastosPage() {
         >
           <option value="all">Todas las categorías</option>
           {CATEGORIES.map((c) => (
-            <option key={c.id} value={c.id}>{c.name}</option>
+            <option key={c.id} value={c.id}>
+              {c.name}
+            </option>
           ))}
         </select>
       </section>
@@ -98,4 +104,15 @@ export default function GastosPage() {
       <section className="flex flex-col gap-3">
         {loading ? (
           <p className={s.subtitle}>Cargando...</p>
-        ) : view.filtered.
+        ) : view.filtered.length === 0 ? (
+          <p className={s.empty}>No hay gastos para este filtro.</p>
+        ) : (
+          view.filtered.map((e) => (
+            <ExpenseCard key={e.id} expense={e} onDelete={handleDelete} />
+          ))
+        )}
+      </section>
+    </div>
+  );
+}
+
